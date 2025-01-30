@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class _503_NGE_II_Next_GE {
      /*
     We will take hypothetically doubled array
