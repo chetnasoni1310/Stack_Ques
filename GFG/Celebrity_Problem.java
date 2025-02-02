@@ -1,6 +1,11 @@
 import java.util.Stack;
 
 public class Celebrity_Problem {
+      /** 
+     * Brute force approach
+     * then using stack
+     * then using 2 pointers
+     */
     public int celebrity_Brute_Force(int mat[][]) {
         // code here
         int n=mat.length;
@@ -29,7 +34,7 @@ public class Celebrity_Problem {
         }
         return -1;
     }
-    public int celebrity(int mat[][]) {
+    public int celebrity_Using_Stack(int mat[][]) {
      Stack<Integer> st=new Stack<>();
     int n=mat.length;
     if(n==1)
@@ -65,5 +70,34 @@ public class Celebrity_Problem {
         }
     }
     return potentialCelebrity;
+}
+public int celebrity(int mat[][]) {
+    int n=mat.length;
+    int i=0;
+    int j=n-1;
+    while(i<j)
+    {
+        if(mat[i][j]==1)
+        {
+            i++;
+        }
+        else
+        {
+            j--;
+        }
+        
+    }
+    int potentialCelebrity=j;
+     for(int k=0;k<n;k++)
+   {
+   if(k!=potentialCelebrity)
+   {
+       if(mat[k][potentialCelebrity]==0 || mat[potentialCelebrity][k]==1)
+       {
+           return -1;
+       }
+   }
+}
+return potentialCelebrity;
 }
 }
